@@ -3,7 +3,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+
+// Icon Type
 type IoniconName = React.ComponentProps<typeof Ionicons>["name"];
+
+// Tab Icon Component
 function TabIcon({ name, focused }: { name: IoniconName; focused: boolean }) {
   return (
     <View style={tabStyles.iconContainer}>
@@ -15,14 +19,20 @@ function TabIcon({ name, focused }: { name: IoniconName; focused: boolean }) {
     </View>
   );
 }
+
+// Tabs Layout
 export default function TabsLayout() {
   const insets = useSafeAreaInsets();
   const bottomInset = Math.max(insets.bottom, 8);
+
   return (
     <Tabs
       screenOptions={{
+        // Tab Bar Colors
         tabBarActiveTintColor: tabNavColors.active,
         tabBarInactiveTintColor: tabNavColors.inactive,
+
+        // Tab Bar Style
         tabBarStyle: [
           tabStyles.tabBar,
           {
@@ -30,15 +40,19 @@ export default function TabsLayout() {
             paddingBottom: bottomInset,
           },
         ],
+
         tabBarItemStyle: tabStyles.tabBarItem,
         tabBarLabelStyle: tabStyles.tabBarLabel,
         tabBarHideOnKeyboard: true,
+
+        // Header Style
         headerStyle: tabStyles.headerStyle,
         headerTintColor: tabNavColors.headerTint,
         headerTitleStyle: tabStyles.headerTitleStyle,
         headerShadowVisible: false,
       }}
     >
+      {/* Home */}
       <Tabs.Screen
         name="home"
         options={{
@@ -52,6 +66,8 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {/* Produk */}
       <Tabs.Screen
         name="produk"
         options={{
@@ -61,10 +77,12 @@ export default function TabsLayout() {
             <TabIcon
               name={focused ? "cube" : "cube-outline"}
               focused={focused}
- />
+            />
           ),
         }}
       />
+
+      {/* Transaksi */}
       <Tabs.Screen
         name="transaksi"
         options={{
@@ -78,6 +96,8 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {/* Laporan */}
       <Tabs.Screen
         name="report"
         options={{
@@ -91,6 +111,8 @@ export default function TabsLayout() {
           ),
         }}
       />
+
+      {/* Profil */}
       <Tabs.Screen
         name="profil"
         options={{
