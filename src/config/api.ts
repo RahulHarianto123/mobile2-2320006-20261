@@ -1,6 +1,6 @@
 // Ganti alamat IP ini dengan IPv4 laptop Anda (cek lewat perintah 'ipconfig' di CMD)
 // Pastikan HP dan Laptop terhubung ke jaringan Wi-Fi yang sama.
-export const API_BASE_URL = "http://192.168.1.164:8000/api";
+export const API_BASE_URL = "https://laravel-2320006-20261.ethiodeploy.app/api";
 export const API_ORIGIN = API_BASE_URL.replace(/\/api\/?$/, "");
 export const API_ENDPOINTS = {
   LOGIN: `${API_BASE_URL}/login`,
